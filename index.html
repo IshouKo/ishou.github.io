@@ -11,7 +11,6 @@
             --accent-color: #3498db;
             --bg-color: #f8f9fa;
             --text-color: #333;
-            --card-bg: #ffffff;
         }
 
         body {
@@ -24,7 +23,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -36,6 +35,16 @@
 
         h1 { margin-bottom: 10px; color: var(--primary-color); }
         h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-top: 40px; color: var(--primary-color); }
+        h3 { margin-bottom: 5px; }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .bio { flex: 1; }
         
         .contact-links a {
             margin-right: 15px;
@@ -44,13 +53,21 @@
             font-weight: bold;
         }
 
-        /* Standard Item Style */
-        .item { margin-bottom: 20px; position: relative; overflow: hidden; }
-        .date-float { color: #666; font-size: 0.9em; float: right; }
+        .item { margin-bottom: 20px; }
+        .date { color: #666; font-size: 0.9em; float: right; }
         .institution { font-weight: bold; }
         .description { font-size: 0.95em; color: #555; margin-top: 5px; }
 
-        /* Project Section Specific Style (Matching Image) */
+        .tag {
+            display: inline-block;
+            background: #e1e8ed;
+            padding: 2px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+        /* --- Personal Projects Section Design (Flor style) --- */
         .year-header {
             font-size: 1.5em;
             font-weight: bold;
@@ -61,9 +78,8 @@
 
         .project-card {
             display: flex;
-            background: transparent;
-            margin-bottom: 40px;
             gap: 30px;
+            margin-bottom: 40px;
             align-items: flex-start;
         }
 
@@ -76,7 +92,7 @@
             width: 100%;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .project-content {
@@ -84,43 +100,29 @@
         }
 
         .project-title {
-            font-size: 1.3em;
+            font-size: 1.25em;
             font-weight: bold;
-            margin-bottom: 15px;
-            line-height: 1.3;
+            margin-bottom: 10px;
+            color: #000;
         }
 
         .project-text {
-            font-size: 0.95em;
-            color: #666;
+            font-size: 0.9em;
+            color: #555;
             margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .read-more {
             display: inline-block;
             background-color: #60a5fa;
             color: white;
-            padding: 10px 25px;
+            padding: 8px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.85em;
+            border-radius: 4px;
+            font-size: 0.8em;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.3s;
-        }
-
-        .read-more:hover {
-            background-color: #3b82f6;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e1e8ed;
-            padding: 2px 10px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            margin-right: 5px;
         }
 
         @media (max-width: 768px) {
@@ -130,8 +132,8 @@
 
         footer {
             text-align: center;
-            margin-top: 80px;
-            padding-bottom: 40px;
+            margin-top: 60px;
+            padding-bottom: 20px;
             font-size: 0.8em;
             color: #888;
         }
@@ -142,76 +144,89 @@
 <div class="container">
     <header>
         <h1>[お名前]</h1>
-        <p>慶應義塾大学大学院 理工学研究科 青木研究室 | AI Engineer / CV Researcher</p>
+        <p>慶應義塾大学大学院 青木研究室 | AI Engineer / CV Researcher</p>
         <div class="contact-links">
             <a href="https://github.com/[あなたのID]"><i class="fab fa-github"></i> GitHub</a>
             <a href="mailto:[メールアドレス]"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
     </header>
 
     <section id="about">
-        <p>慶應義塾大学大学院 青木研究室に所属。深層学習ベースのコンピュータビジョン（CV）を専門とし、特にイベントカメラや画像復元、モーション拡大の研究に従事しています。現在、日本でAIエンジニアを目指しつつ、友人とともにAIアプリケーション開発での起業も視野に活動中です。</p>
-    </section>
-
-    <section id="education">
-        <h2><i class="fas fa-university"></i> Education / 学歴</h2>
-        <div class="item">
-            <span class="date-float">2024/04 - 現在</span>
-            <div class="institution">慶應義塾大学大学院 理工学研究科</div>
-            <div class="description">総合デザイン工学専攻 電気情報工学科 青木研究室（CV・AI）</div>
-        </div>
-        <div class="item">
-            <span class="date-float">2020/04 - 2024/03</span>
-            <div class="institution">慶應義塾大学 理工学部</div>
-            <div class="description">電気情報工学科 卒業 (GPA: 3.45)</div>
+        <div class="profile-info">
+            <div class="bio">
+                <p>慶應義塾大学大学院 理工学研究科 総合デザイン工学専攻 電気情報工学科 青木研究室に所属。深層学習ベースのコンピュータビジョン（CV）を専門とし、特にイベントカメラや画像復元、モーション拡大の研究に従事しています。現在、日本でAIエンジニアを目指しつつ、起業も視野に活動中です。</p>
+            </div>
         </div>
     </section>
 
     <section id="publications">
         <h2><i class="fas fa-book-open"></i> Publications / 学会発表</h2>
         <div class="item">
-            <span class="date-float">2026 (Submitted)</span>
+            <span class="date">2026 (Submitted)</span>
             <div class="institution">ICIP 2026</div>
             <div class="description">投稿済み (研究テーマ: ローリングシャッター画像＋イベントデータベース関連)</div>
         </div>
         <div class="item">
-            <span class="date-float">2026</span>
+            <span class="date">2026</span>
             <div class="institution">CVPR 2026</div>
             <div class="description">投稿・査読経験あり</div>
         </div>
     </section>
 
-    <section id="experience">
-        <h2><i class="fas fa-briefcase"></i> Internships / インターンシップ</h2>
+    <section id="patents">
+        <h2><i class="fas fa-certificate"></i> 特許</h2>
         <div class="item">
-            <span class="date-float">2026/02 - 現在</span>
+            <div class="institution">画像処理装置、画像処理方法及びプログラム</div>
+            <div class="description">PCT国際出願完了</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> インターンシップ</h2>
+        <div class="item">
+            <span class="date">2026/02 - 現在</span>
             <div class="institution">Crystal-Method株式会社</div>
             <div class="description">AI開発エンジニアとして従事</div>
         </div>
     </section>
 
-    <section id="honors">
-        <h2><i class="fas fa-award"></i> Patent & Awards / 特許・受賞歴</h2>
+    <section id="awards">
+        <h2><i class="fas fa-trophy"></i> 受賞歴・奨学金</h2>
+        <div class="item"><span class="date">2024/04 - 2026/03</span>イオンスカラシップ</div>
+        <div class="item"><span class="date">2023/10 - 2024/03</span>慶應義塾大学給費奨学金</div>
+        <div class="item"><span class="date">2023/04 - 2023/09</span>山岡憲一記念基金奨学金</div>
+    </section>
+
+    <section id="education">
+        <h2><i class="fas fa-university"></i> 学歴</h2>
         <div class="item">
-            <div class="institution">画像処理装置、画像処理方法及びプログラム</div>
-            <div class="description">PCT国際出願完了</div>
+            <span class="date">現在</span>
+            <div class="institution">慶應義塾大学大学院 理工学研究科</div>
+            <div class="description">総合デザイン工学専攻 電気情報工学科 青木研究室（CV・AI）</div>
         </div>
         <div class="item">
-            <span class="date-float">2024 - 2026</span>
-            <div class="institution">イオンスカラシップ</div>
-        </div>
-        <div class="item">
-            <span class="date-float">2023 - 2024</span>
-            <div class="institution">慶應義塾大学給費奨学金 / 山岡憲一記念基金奨学金</div>
+            <span class="date">卒業済</span>
+            <div class="institution">慶應義塾大学 理工学部 電気情報工学科</div>
+            <div class="description">GPA: 3.45 / 卒業研究: ローリングシャッター画像＋イベントデータベースのモーション拡大</div>
         </div>
     </section>
 
     <section id="skills">
-        <h2><i class="fas fa-tools"></i> Skills / スキル・資格</h2>
-        <div style="margin-bottom: 10px;">
-            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span>
+        <h2><i class="fas fa-tools"></i> スキル・資格</h2>
+        <div>
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Deep Learning</span>
         </div>
-        <p style="font-size: 0.9em;">TOEFL iBT: 108 | JLPT N1 | 普通自動車免許</p>
+        <div style="margin-top: 15px;">
+            <ul>
+                <li><strong>TOEFL iBT:</strong> 108/120</li>
+                <li><strong>日本語能力試験:</strong> N1</li>
+                <li><strong>その他:</strong> 普通自動車第一種運転免許</li>
+            </ul>
+        </div>
     </section>
 
     <section id="projects">
@@ -221,13 +236,13 @@
 
         <div class="project-card">
             <div class="project-image">
-                <img src="project_sns_app.jpg" alt="SNS App Project">
+                <img src="sns_project_thumb.jpg" alt="SNS Web App">
             </div>
             <div class="project-content">
                 <div class="project-title">SNS Web Application (AI Integrated)</div>
                 <div class="project-text">
-                    友人との起業に向けた、AI機能を統合した次世代SNSアプリケーションの開発。
-                    ユーザー体験を最適化するためのAIアルゴリズムの実装とスケーラブルなバックエンド構築を担当。
+                    友人との起業を目的とした、AI機能を統合した次世代SNSアプリケーションの開発。
+                    ユーザー体験を最適化するためのAIアルゴリズムの実装とバックエンド構築。
                 </div>
                 <a href="#" class="read-more">Read More</a>
             </div>
@@ -235,13 +250,13 @@
 
         <div class="project-card">
             <div class="project-image">
-                <img src="project_ai_system.jpg" alt="AI System Project">
+                <img src="ai_system_thumb.jpg" alt="AI System">
             </div>
             <div class="project-content">
                 <div class="project-title">AI System Web Application</div>
                 <div class="project-text">
-                    Pythonをベースとした高度な画像処理・解析システムのウェブアプリケーション化。
-                    コンピュータビジョンの知見を活かし、リアルタイムでの画像変換や解析をブラウザ上で行うシステム。
+                    Pythonを用いた高度な画像処理・解析システムのウェブアプリケーション。
+                    CV研究の知見を活かし、ブラウザ上でリアルタイムにAI処理を行うパイプラインの構築。
                 </div>
                 <a href="#" class="read-more">Read More</a>
             </div>
