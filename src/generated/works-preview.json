@@ -1,0 +1,81 @@
+[
+  {
+    "id": "emars",
+    "year": "2026",
+    "title": "EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images",
+    "titleJa": "EMARS：イベントデータを用いたローリングシャッター補正・ブレ除去・フレーム補間",
+    "descriptionJa": "イベントデータと時間条件付き光フローを用い、ローリングシャッター歪み補正、ブレ除去、任意倍率フレーム補間を統一的に扱う研究。IEEE ICIP 2026にて発表予定。\nA flow-centric event-based framework for joint rolling-shutter correction, deblurring, and arbitrary-rate frame interpolation. Accepted to IEEE ICIP 2026.",
+    "descriptionEn": "A flow-centric event-based framework for joint rolling-shutter correction, deblurring, and arbitrary-rate frame interpolation. Accepted to IEEE ICIP 2026.",
+    "href": "https://2026.ieeeicip.org/list-of-accepted-regular-and-special-session-papers/",
+    "localImage": "EMARS.gif",
+    "kind": "paper",
+    "tags": [
+      "Event Camera",
+      "Optical Flow",
+      "INR",
+      "PyTorch"
+    ],
+    "resolvedImage": "/EMARS.gif",
+    "github": null
+  },
+  {
+    "id": "ai-web-app",
+    "year": "2025",
+    "title": "AI System Web Application",
+    "titleJa": "AI System Web Application",
+    "descriptionJa": "ローリングシャッター画像とイベントデータを入力し、歪みのない高フレームレート画像と動画を生成する研究モデル推論Webアプリ。\nAn inference web application that fuses rolling-shutter images and event data to generate distortion-free high-frame-rate images and videos.",
+    "descriptionEn": "An inference web application that fuses rolling-shutter images and event data to generate distortion-free high-frame-rate images and videos.",
+    "href": "https://github.com/IshouKo/AI_web_app",
+    "repository": "IshouKo/AI_web_app",
+    "localImage": "ai_system.png",
+    "kind": "github",
+    "tags": [
+      "FastAPI",
+      "PyTorch",
+      "Event Data",
+      "Video"
+    ],
+    "resolvedImage": "/ai_system.png",
+    "github": null
+  },
+  {
+    "id": "ai-expense-agent",
+    "year": "2025",
+    "title": "AI Expense Agent",
+    "titleJa": "AI Expense Agent",
+    "descriptionJa": "自然言語で家計を記録し、カテゴリ分類、月次統計、予算管理、月末予測、支出比較、節約提案を行うTool-based Agent。\nA tool-based personal-finance agent for natural-language transaction recording, analytics, budgeting, forecasting, and spending advice.",
+    "descriptionEn": "A tool-based personal-finance agent for natural-language transaction recording, analytics, budgeting, forecasting, and spending advice.",
+    "href": "https://github.com/IshouKo/AI_expense_agent",
+    "repository": "IshouKo/AI_expense_agent",
+    "localImage": "ai_expense.png",
+    "kind": "github",
+    "tags": [
+      "FastAPI",
+      "Streamlit",
+      "SQLAlchemy",
+      "Agent"
+    ],
+    "resolvedImage": "/ai_expense.png",
+    "github": null
+  },
+  {
+    "id": "era-sns",
+    "year": "2025",
+    "title": "Era SNS Web Application",
+    "titleJa": "Era SNS Web Application",
+    "descriptionJa": "年齢層別Safe Zoneの実現を目指し、本人確認、プロフィール、投稿、フォロー、管理者審査などのSNS基盤を実装したWebアプリ。\nAn SNS foundation with identity verification, profiles, posting, following, and administrator review, designed toward future age-aware Safe Zones.",
+    "descriptionEn": "An SNS foundation with identity verification, profiles, posting, following, and administrator review, designed toward future age-aware Safe Zones.",
+    "href": "https://github.com/IshouKo/era_SNS_web_app",
+    "repository": "IshouKo/era_SNS_web_app",
+    "localImage": "sns_project.png",
+    "kind": "github",
+    "tags": [
+      "Flask",
+      "PostgreSQL",
+      "JWT",
+      "Face Matching"
+    ],
+    "resolvedImage": "/sns_project.png",
+    "github": null
+  }
+]

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 28px;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        section,
+        header {
+            scroll-margin-top: 28px;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 64px));
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 { margin-bottom: 10px; color: var(--primary-color); }
+        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-top: 40px; color: var(--primary-color); }
+        h3 { margin-bottom: 5px; }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 150px;           
+            height: 150px;          
+            border-radius: 50%;     
+            object-fit: cover;      
+            margin-bottom: 20px;    
+            border: 3px solid var(--accent-color); 
+        }
+        
+        .bio { flex: 1; }
+        
+        .contact-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .item { margin-bottom: 20px; }
+        .date {
+            color: #666;
+            font-size: 0.9em;
+            float: right;
+        }
+
+        /* Disable iPhone Safari's automatic blue date/phone links. */
+        a[x-apple-data-detectors],
+        a[x-apple-data-detectors]:hover,
+        a[x-apple-data-detectors]:focus {
+            color: inherit !important;
+            text-decoration: none !important;
+            font: inherit !important;
+            line-height: inherit !important;
+            cursor: default !important;
+        }
+
+        .institution { font-weight: bold; }
+        .description { font-size: 0.95em; color: #555; margin-top: 5px; }
+
+        .tag {
+            display: inline-block;
+            background: #e1e8ed;
+            padding: 2px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+        /* --- Personal Projects Section Design (Flor style) --- */
+        .year-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 40px 0 20px 0;
+            color: var(--primary-color);
+        }
+
+        .project-card {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .project-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .project-text {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #60a5fa;
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .project-card { flex-direction: column; }
+            .project-image { min-width: 100%; }
+        }
+
+
+        /* --- Articles Section Design --- */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .article-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e8f2ff;
+            color: #2563eb;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .article-title {
+            margin: 0 0 12px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: var(--primary-color);
+        }
+
+        .article-description {
+            margin: 0 0 20px;
+            color: #555;
+            font-size: 0.92em;
+            line-height: 1.7;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .article-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- Sidebar Navigation: fixed on desktop, collapsible on mobile --- */
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            z-index: 1000;
+            width: 250px;
+            padding: 28px 18px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.96);
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 8px 0 28px rgba(15, 23, 42, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 4px 10px 22px;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .sidebar-brand-mark {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            flex: 0 0 36px;
+            border-radius: 11px;
+            color: white;
+            background: linear-gradient(135deg, var(--accent-color), #2563eb);
+            box-shadow: 0 8px 18px rgba(52, 152, 219, 0.25);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-height: 44px;
+            padding: 0 13px;
+            border-radius: 11px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 650;
+            transition: color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+        }
+
+        .sidebar-nav a i {
+            width: 20px;
+            text-align: center;
+            color: #64748b;
+            transition: color 0.18s ease;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--primary-color);
+            background: #eef6ff;
+            transform: translateX(3px);
+        }
+
+        .sidebar-nav a.active {
+            color: #1d4ed8;
+            background: #e8f2ff;
+        }
+
+        .sidebar-nav a.active i {
+            color: #2563eb;
+        }
+
+        .main-content {
+            min-width: 0;
+            margin-left: 250px;
+        }
+
+        /* Hidden on desktop; shown only on mobile. */
+        .mobile-menu-button,
+        .sidebar-overlay {
+            display: none;
+        }
+
+        @media (max-width: 980px) and (min-width: 769px) {
+            .sidebar {
+                width: 220px;
+                padding: 24px 14px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+            }
+
+            .container {
+                width: min(100% - 32px, 900px);
+                padding: 40px 0 36px;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: min(82vw, 290px);
+                padding: 24px 16px;
+                transform: translateX(-105%);
+                transition: transform 0.28s ease;
+                box-shadow: 12px 0 34px rgba(15, 23, 42, 0.18);
+            }
+
+            body.mobile-menu-open .sidebar {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-menu-button {
+                position: fixed;
+                top: 16px;
+                left: 16px;
+                z-index: 1200;
+                display: grid;
+                place-items: center;
+                width: 44px;
+                height: 44px;
+                padding: 0;
+                border: 1px solid #dbe4ee;
+                border-radius: 12px;
+                color: var(--primary-color);
+                background: rgba(255, 255, 255, 0.96);
+                box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+                cursor: pointer;
+            }
+
+            body.mobile-menu-open .mobile-menu-button {
+                left: min(calc(82vw - 58px), 232px);
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 900;
+                display: block;
+                background: rgba(15, 23, 42, 0.38);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.25s ease, visibility 0.25s ease;
+            }
+
+            body.mobile-menu-open .sidebar-overlay {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+
+            .container {
+                width: min(100% - 28px, 900px);
+                padding: 78px 0 32px;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                min-width: 100%;
+            }
+
+            .profile-info {
+                gap: 18px;
+            }
+
+            .contact-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 14px;
+            }
+
+            .contact-links a {
+                margin-right: 0;
+            }
+
+            /*
+             * The date span appears before the title in the HTML.
+             * On mobile, reorder each record as:
+             * title -> description -> date.
+             */
+            #publications .item,
+            #experience .item,
+            #education .item {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #publications .institution,
+            #experience .institution,
+            #education .institution {
+                order: 1;
+            }
+
+            #publications .description,
+            #experience .description,
+            #education .description {
+                order: 2;
+            }
+
+            #publications .date,
+            #experience .date,
+            #education .date {
+                order: 3;
+                float: none;
+                display: block;
+                align-self: flex-start;
+                margin: 6px 0 0;
+                color: #666 !important;
+                text-decoration: none !important;
+                white-space: nowrap;
+            }
+
+            /* Awards contain plain text beside the date, so retain their compact layout. */
+            #awards .date {
+                float: right;
+                display: inline;
+                margin: 0 0 0 10px;
+                color: #666 !important;
+                text-decoration: none !important;
+                white-space: nowrap;
+            }
+        }
+
+
+        /* --- Timeline decoration for portfolio sections --- */
+        .timeline-section .section-timeline {
+            position: relative;
+            margin-top: 24px;
+        }
+
+        .timeline-section .section-timeline::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 11px;
+            width: 3px;
+            border-radius: 999px;
+            background: #e1e5ea;
+        }
+
+        .timeline-section .section-timeline > div {
+            position: relative;
+            box-sizing: border-box;
+            padding-left: 48px;
+        }
+
+        .timeline-section .section-timeline > div::before {
+            content: "";
+            position: absolute;
+            top: 0.48em;
+            left: 0;
+            z-index: 2;
+            width: 17px;
+            height: 17px;
+            border: 3px solid #172033;
+            border-radius: 50%;
+            background: var(--bg-color);
+            box-shadow: 0 0 0 4px var(--bg-color);
+            transition:
+                border-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .timeline-section .section-timeline > div:hover::before {
+            border-color: var(--accent-color);
+            transform: scale(1.08);
+        }
+
+        /* The last Skills block did not originally use the .item class. */
+        #skills .section-timeline > div:last-child {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-section .section-timeline {
+                margin-top: 20px;
+            }
+
+            .timeline-section .section-timeline::before {
+                left: 9px;
+                width: 2px;
+            }
+
+            .timeline-section .section-timeline > div {
+                padding-left: 38px;
+            }
+
+            .timeline-section .section-timeline > div::before {
+                top: 0.42em;
+                width: 14px;
+                height: 14px;
+                border-width: 3px;
+                box-shadow: 0 0 0 3px var(--bg-color);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+        
+    </style>
+</head>
+<body>
+
+<button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    type="button"
+    aria-label="ナビゲーションを開く"
+    aria-controls="sidebar"
+    aria-expanded="false">
+    <i class="fas fa-bars"></i>
+</button>
+
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+<aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
+    <div class="sidebar-brand">
+        <span class="sidebar-brand-mark"><i class="fas fa-layer-group"></i></span>
+        <span>Ishou Portfolio</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#profile" class="active"><i class="fas fa-user"></i><span>Profile</span></a>
+        <a href="#publications"><i class="fas fa-book-open"></i><span>Publications</span></a>
+        <a href="#patents"><i class="fas fa-lightbulb"></i><span>Patents</span></a>
+        <a href="#experience"><i class="fas fa-briefcase"></i><span>Internships</span></a>
+        <a href="#awards"><i class="fas fa-award"></i><span>Awards</span></a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+        <a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a>
+        <a href="#projects"><i class="fas fa-diagram-project"></i><span>Personal Projects</span></a>
+        <a href="#articles"><i class="fas fa-newspaper"></i><span>Articles</span></a>
+    </nav>
+</aside>
+
+<main class="main-content">
+<div class="container">
+    <header id="profile">
+        <img src="profile.jpg" class="profile-img">
+        <h1>[Profile]</h1>
+        <p>Ishou Ko | Keio University Aoki Lab M1 | AI・CV Researcher / AI Engineer</p>
+        <div class="contact-links">
+            <a href="https://aoki-medialab.jp"><i class="fab fa-research"></i> Aoki Lab</a>
+            <a href="https://github.com/IshouKo"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:iko777412@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://orcid.org/0009-0007-3787-8553"><i class="fas fa-orcid"></i> ORCiD</a>
+            <a href="https://www.linkedin.com/in/ishou/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="profile-info">
+            <div class="bio">
+                <p>慶應義塾大学大学院 理工学研究科 総合デザイン工学専攻 電気情報工学 青木研究室に所属。深層学習ベースのコンピュータビジョンを専門とし、特に画像復元、動画生成、3D再構成、イベントカメラの研究とAI開発に従事しています。<br>　I am a graduate student at the Aoki Media Sensing Laboratory within the Graduate School of Science and Technology at Keio University. My research expertise lies in deep learning-based computer vision, specifically focusing on image restoration, video generation, 3D reconstruction and event camera. In addition to my academic research, I am actively engaged in AI application development.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="timeline-section">
+        <h2> Publications / 学会発表</h2>
+        <div class="section-timeline">
+        <div class="item">
+            <span class="date">2026</span>
+            <div class="institution">IEEE ICIP 2026</div>
+            <div class="description"><strong>Weixiang Hu</strong>, Bohan Huang, Shigeaki Namiki, Yuka Ogino, Takahiro Toizumi, Atsushi Ito, Yoshimitsu Aoki. "EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images"[<a href="https://2026.ieeeicip.org/list-of-accepted-regular-and-special-session-papers/" target="_blank" style="text-decoration: none; color: #5b9bd5;">pdf</a>]</div>
+        </div>
+        <div class="item">
+            <span class="date">2026</span>
+            <div class="institution">MIRU 2026</div>
+            <div class="description"><strong>胡 煒翔</strong>, 黄 柏翰, 並木 重哲, 荻野 有加, 戸泉 貴裕, 伊藤 厚史, 青木 義満. "イベントデータを用いた動き推定に基づくローリングシャッター画像の歪み補正・ブレ除去およびフレーム補間"[<a href="https://miru-committee.github.io/miru2026/program/timetable/" target="_blank" style="text-decoration: none; color: #5b9bd5;">more</a>]</div>
+        </div>
+        <div class="item">
+            <span class="date">2026</span>
+            <div class="institution">CVPR 2026</div>
+            <div class="description">投稿・査読経験</div>
+        </div>
+    
+        </div>
+    </section>
+
+    <section id="patents" class="timeline-section">
+        <h2> Patents / 特許</h2>
+        <div class="section-timeline">
+        <div class="item">
+            <div class="institution">画像処理装置、画像処理方法及びプログラム</div>
+            <div class="description">PCT国際出願</div>
+        </div>
+    
+        </div>
+    </section>
+
+    <section id="experience" class="timeline-section">
+        <h2> Internships / インターンシップ</h2>
+        <div class="section-timeline">
+        <div class="item">
+            <span class="date">2026/09 - 2026/11</span>
+            <div class="institution">
+            株式会社NEC バイオメトリクス研究所
+            </div>
+            <div class="description">R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発<br>Research on AI friendly image sensing and enhancement</div>
+        </div>
+        <div class="item">
+            <span class="date">2026/07 - Now</span>
+            <div class="institution">
+            株式会社光通信/コア・コンサルティング・グループ 情報システム部グループDX課
+            </div>
+            <div class="description">AIインターン：LLMを用いた企業業務自動化・</div>
+        </div>
+        <div class="item">
+            <span class="date">2026/01 - 2026/07</span>
+            <div class="institution">
+                    株式会社Crystal-Method
+            </div>
+            <div class="description">AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築</div>
+        </div>
+    
+        </div>
+    </section>
+
+    <section id="awards" class="timeline-section">
+        <h2> Awards / 受賞歴・奨学金</h2>
+        <div class="section-timeline">
+        <div class="item"><span class="date">2024/04 - 2026/03</span>イオンスカラシップ</div>
+        <div class="item"><span class="date">2023/10 - 2024/03</span>慶應義塾大学給費奨学金</div>
+        <div class="item"><span class="date">2023/04 - 2023/09</span>山岡憲一記念基金奨学金</div>
+    
+        </div>
+    </section>
+
+    <section id="education" class="timeline-section">
+        <h2> Education / 学歴</h2>
+        <div class="section-timeline">
+        <div class="item">
+            <span class="date">2026/04 - Now</span>
+            <div class="institution">慶應義塾大学大学院 理工学研究科</div>
+            <div class="description">総合デザイン工学専攻 電気情報工学カリキュラム 青木研究室</div>
+        </div>
+        <div class="item">
+            <span class="date">2022/04 - 2026/03</span>
+            <div class="institution">慶應義塾大学 理工学部</div>
+            <div class="description">電気情報工学科 青木研究室</div>
+        </div>
+    
+        </div>
+    </section>
+
+    <section id="skills" class="timeline-section">
+        <h2> Skills / スキル・資格</h2>
+        <div class="section-timeline">
+    
+        <div class="item">
+            <h3>プログラミング言語</h3>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">C</span>
+                <span class="tag">C++</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SQL</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">Matlab</span>
+            </div>
+        </div>
+    
+        <div class="item">
+            <h3>フレームワーク・ライブラリ</h3>
+            <div>
+                <span class="tag">PyTorch</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">scikit-learn</span>
+                <span class="tag">React</span>
+                <span class="tag">React Native</span>
+                <span class="tag">FastAPI</span>
+            </div>
+        </div>
+    
+        <div class="item">
+            <h3>ツール・開発環境</h3>
+            <div>
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Xcode</span>
+                <span class="tag">Claude Code</span>
+                <span class="tag">Codex</span>
+            </div>
+        </div>
+    
+        <div class="item">
+            <h3>AI研究・開発領域</h3>
+            <div>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">LLM Application</span>
+                <span class="tag">STT/TTS</span>
+                <span class="tag">AI Agent</span>
+                <span class="tag">Infrastructure</span>
+            </div>
+        </div>
+    
+        <div class="item">
+            <h3>その他</h3>
+            <div>
+                <span class="tag">English Paper Reading & Writing</span>
+                <span class="tag">Semiconductor</span>
+                <span class="tag">Japanese</span>
+                <span class="tag">English</span>
+                <span class="tag">Chinese</span>
+            </div>
+        </div>
+    
+        <div style="margin-top:20px;">
+            <h3>資格</h3>
+            <ul>
+                <li><strong>画像処理エンジニア検定 エキスパート</li>
+                <li><strong>TOEFL iBT:</strong> 108/120 (Reading 30, Listening 27, Speaking 24, Writing 27)</li>
+                <li><strong>日本語能力試験:</strong> N1</li>
+                <li><strong>普通自動車第一種運転免許</strong></li>
+            </ul>
+        </div>
+    
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2> Personal Projects / 個人プロジェクト</h2>
+
+        <div class="year-header">2026</div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="EMARS.gif">
+            </div>
+            <div class="project-content">
+                <div class="project-title">EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images</div>
+                <div class="project-text">
+                    RS-CMOS sensors suffer from distortions and blur, which event-based Implicit Neural Representations (INR) often fail to resolve due to motion information loss. We propose a flow-centric unified framework that explicitly utilizes time-conditional optical flow as the primary kinematic constraint. By integrating a Flow-Constrained INR, our model ensures physically consistent motion trajectories for simultaneous RS correction, deblurring, and arbitrary-rate interpolation. Experiments demonstrate that our method achieves state-of-the-art performance across all benchmarks.<br>IEEE ICIP2026にて発表予定です。
+        
+                </div>
+                <a href="https://2026.ieeeicip.org/list-of-accepted-regular-and-special-session-papers/" class="read-more">Read More</a>
+            </div>
+        </div>
+        
+        <div class="year-header">2025</div>
+        <div class="project-card">
+            <div class="project-image">
+                <img src="ai_system.png">
+            </div>
+            <div class="project-content">
+                <div class="project-title">AI System Web Application</div>
+                <div class="project-text">
+                    ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ　<br>　AI-powered web application that generates distortion-free, high-frame-rate images by fusing Rolling Shutter (RS) images with event-based data
+        
+                </div>
+                <a href="https://github.com/IshouKo/AI_web_app" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="ai_expense.png">
+            </div>
+            <div class="project-content">
+                <div class="project-title">AI Expense Agent</div>
+                <div class="project-text">
+                    自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent　<br>　An AI-powered personal finance management agent that records income and expenses through natural language, categorizes transactions, generates monthly statistics, manages budgets, forecasts end-of-month spending, analyzes the causes of increased spending, and provides money-saving recommendations.
+        
+                </div>
+                <a href="https://github.com/IshouKo/AI_expense_agent" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="sns_project.png">
+            </div>
+            <div class="project-content">
+                <div class="project-title">Era SNS Web Application</div>
+                <div class="project-text">
+                    ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ <br>　A next-generation SNS that automatically categorizes users into optimized "Safe Zones" based on their age demographics (Gen Z, Millennials, Seniors, etc.), fostering deeper connections through shared cultural contexts and generation-specific languages
+                     
+                </div>
+                <a href="https://github.com/IshouKo/era_SNS_web_app" class="read-more">Read More</a>
+            </div>
+        </div>
+
+    </section>
+
+        <section id="articles">
+        <h2> Articles / 記事</h2>
+
+        <div class="article-grid">
+            <article class="article-card">
+                <span class="article-label">Language Learning</span>
+                <h3 class="article-title">TOEFL108点・N1を取った僕の外国語勉強法</h3>
+                <p class="article-description">
+                    AI・コンピュータビジョン研究者の立場から、AI時代に外国語を学ぶ意味と、
+                    単語・Reading・Listening・Speaking・Writingの勉強法を紹介します。
+                </p>
+                <a href="https://note.com/apt_marten8681/n/ne70bbefba774"
+                   class="article-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    noteで読む <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 IshouKo. All Rights Reserved.</p>
+    </footer>
+</div>
+</main>
+
+
+<script>
+    (() => {
+        const body = document.body;
+        const menuButton = document.getElementById('mobileMenuButton');
+        const overlay = document.getElementById('sidebarOverlay');
+        const navLinks = [...document.querySelectorAll('.sidebar-nav a')];
+        const mobileBreakpoint = 768;
+
+        const setMenuOpen = (open) => {
+            body.classList.toggle('mobile-menu-open', open);
+            menuButton.setAttribute('aria-expanded', String(open));
+            menuButton.setAttribute(
+                'aria-label',
+                open ? 'ナビゲーションを閉じる' : 'ナビゲーションを開く'
+            );
+            menuButton.innerHTML = open
+                ? '<i class="fas fa-xmark"></i>'
+                : '<i class="fas fa-bars"></i>';
+            overlay.setAttribute('aria-hidden', String(!open));
+        };
+
+        menuButton.addEventListener('click', () => {
+            setMenuOpen(!body.classList.contains('mobile-menu-open'));
+        });
+
+        overlay.addEventListener('click', () => setMenuOpen(false));
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= mobileBreakpoint) {
+                    setMenuOpen(false);
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > mobileBreakpoint) {
+                setMenuOpen(false);
+            }
+        });
+
+        const sections = navLinks
+            .map((link) => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (!visible) return;
+
+            navLinks.forEach((link) => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + visible.target.id
+                );
+            });
+        }, {
+            rootMargin: '-20% 0px -65% 0px',
+            threshold: [0.01, 0.2, 0.5]
+        });
+
+        sections.forEach((section) => observer.observe(section));
+    })();
+</script>
+
+
+</body>
+</html>

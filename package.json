@@ -1,0 +1,36 @@
+{
+  "name": "ishou-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "copy:legacy-assets": "node scripts/copyLegacyAssets.mjs",
+    "generate:works-preview": "node scripts/generateWorksPreviews.mjs",
+    "predev": "npm run copy:legacy-assets && npm run generate:works-preview",
+    "dev": "next dev --turbopack",
+    "prebuild": "npm run copy:legacy-assets && npm run generate:works-preview",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "i18next": "^25.7.4",
+    "jotai": "^2.16.1",
+    "lucide-react": "^0.522.0",
+    "next": "15.3.8",
+    "octokit": "^5.0.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-i18next": "^15.7.4",
+    "swr": "^2.3.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^20.19.28",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "15.3.4",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}
