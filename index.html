@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     <title>Your Name | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -26,6 +27,8 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 28px;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         section,
@@ -75,7 +78,23 @@
         }
 
         .item { margin-bottom: 20px; }
-        .date { color: #666; font-size: 0.9em; float: right; }
+        .date {
+            color: #666;
+            font-size: 0.9em;
+            float: right;
+        }
+
+        /* Disable iPhone Safari's automatic blue date/phone links. */
+        a[x-apple-data-detectors],
+        a[x-apple-data-detectors]:hover,
+        a[x-apple-data-detectors]:focus {
+            color: inherit !important;
+            text-decoration: none !important;
+            font: inherit !important;
+            line-height: inherit !important;
+            cursor: default !important;
+        }
+
         .institution { font-weight: bold; }
         .description { font-size: 0.95em; color: #555; margin-top: 5px; }
 
@@ -418,10 +437,52 @@
                 margin-right: 0;
             }
 
-            .date {
+            /*
+             * The date span appears before the title in the HTML.
+             * On mobile, reorder each record as:
+             * title -> date -> description.
+             */
+            #publications .item,
+            #experience .item,
+            #education .item {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #publications .institution,
+            #experience .institution,
+            #education .institution {
+                order: 1;
+            }
+
+            #publications .date,
+            #experience .date,
+            #education .date {
+                order: 2;
                 float: none;
                 display: block;
-                margin-bottom: 4px;
+                align-self: flex-start;
+                margin: 4px 0 3px;
+                color: #666 !important;
+                text-decoration: none !important;
+                white-space: nowrap;
+            }
+
+            #publications .description,
+            #experience .description,
+            #education .description {
+                order: 3;
+            }
+
+            /* Awards contain plain text beside the date, so retain their compact layout. */
+            #awards .date {
+                float: right;
+                display: inline;
+                margin: 0 0 0 10px;
+                color: #666 !important;
+                text-decoration: none !important;
+                white-space: nowrap;
             }
         }
 
