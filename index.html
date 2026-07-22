@@ -486,6 +486,80 @@
             }
         }
 
+
+        /* --- Timeline decoration for portfolio sections --- */
+        .timeline-section .section-timeline {
+            position: relative;
+            margin-top: 24px;
+        }
+
+        .timeline-section .section-timeline::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 11px;
+            width: 3px;
+            border-radius: 999px;
+            background: #e1e5ea;
+        }
+
+        .timeline-section .section-timeline > div {
+            position: relative;
+            box-sizing: border-box;
+            padding-left: 48px;
+        }
+
+        .timeline-section .section-timeline > div::before {
+            content: "";
+            position: absolute;
+            top: 0.48em;
+            left: 0;
+            z-index: 2;
+            width: 17px;
+            height: 17px;
+            border: 3px solid #172033;
+            border-radius: 50%;
+            background: var(--bg-color);
+            box-shadow: 0 0 0 4px var(--bg-color);
+            transition:
+                border-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .timeline-section .section-timeline > div:hover::before {
+            border-color: var(--accent-color);
+            transform: scale(1.08);
+        }
+
+        /* The last Skills block did not originally use the .item class. */
+        #skills .section-timeline > div:last-child {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-section .section-timeline {
+                margin-top: 20px;
+            }
+
+            .timeline-section .section-timeline::before {
+                left: 9px;
+                width: 2px;
+            }
+
+            .timeline-section .section-timeline > div {
+                padding-left: 38px;
+            }
+
+            .timeline-section .section-timeline > div::before {
+                top: 0.42em;
+                width: 14px;
+                height: 14px;
+                border-width: 3px;
+                box-shadow: 0 0 0 3px var(--bg-color);
+            }
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -560,8 +634,9 @@
         </div>
     </section>
 
-    <section id="publications">
+    <section id="publications" class="timeline-section">
         <h2> Publications / 学会発表</h2>
+        <div class="section-timeline">
         <div class="item">
             <span class="date">2026</span>
             <div class="institution">IEEE ICIP 2026</div>
@@ -577,18 +652,24 @@
             <div class="institution">CVPR 2026</div>
             <div class="description">投稿・査読経験</div>
         </div>
+    
+        </div>
     </section>
 
-    <section id="patents">
+    <section id="patents" class="timeline-section">
         <h2> Patents / 特許</h2>
+        <div class="section-timeline">
         <div class="item">
             <div class="institution">画像処理装置、画像処理方法及びプログラム</div>
             <div class="description">PCT国際出願</div>
         </div>
+    
+        </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="timeline-section">
         <h2> Internships / インターンシップ</h2>
+        <div class="section-timeline">
         <div class="item">
             <span class="date">2026/09 - 2026/11</span>
             <div class="institution">
@@ -610,17 +691,23 @@
             </div>
             <div class="description">AIシステム開発エンジニア</div>
         </div>
+    
+        </div>
     </section>
 
-    <section id="awards">
+    <section id="awards" class="timeline-section">
         <h2> Awards / 受賞歴・奨学金</h2>
+        <div class="section-timeline">
         <div class="item"><span class="date">2024/04 - 2026/03</span>イオンスカラシップ</div>
         <div class="item"><span class="date">2023/10 - 2024/03</span>慶應義塾大学給費奨学金</div>
         <div class="item"><span class="date">2023/04 - 2023/09</span>山岡憲一記念基金奨学金</div>
+    
+        </div>
     </section>
 
-    <section id="education">
+    <section id="education" class="timeline-section">
         <h2> Education / 学歴</h2>
+        <div class="section-timeline">
         <div class="item">
             <span class="date">2026/04 - Now</span>
             <div class="institution">慶應義塾大学大学院 理工学研究科</div>
@@ -631,10 +718,13 @@
             <div class="institution">慶應義塾大学 理工学部</div>
             <div class="description">電気情報工学科 青木研究室</div>
         </div>
+    
+        </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="timeline-section">
         <h2> Skills / スキル・資格</h2>
+        <div class="section-timeline">
     
         <div class="item">
             <h3>プログラミング言語</h3>
@@ -709,6 +799,8 @@
                 <li><strong>日本語能力試験:</strong> N1</li>
                 <li><strong>普通自動車第一種運転免許</strong></li>
             </ul>
+        </div>
+    
         </div>
     </section>
 
