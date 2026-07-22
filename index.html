@@ -20,12 +20,24 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 28px;
+        }
+
+        section,
+        header {
+            scroll-margin-top: 28px;
         }
 
         .container {
-            max-width: 850px;
+            width: min(1180px, calc(100% - 64px));
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 48px 0;
         }
 
         header {
@@ -200,6 +212,196 @@
             text-decoration: underline;
         }
 
+
+        /* --- Collapsible Sidebar Navigation --- */
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            z-index: 1000;
+            width: 250px;
+            padding: 28px 18px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.96);
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 8px 0 28px rgba(15, 23, 42, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transform: translateX(0);
+            transition: transform 0.28s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 4px 10px 22px;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .sidebar-brand-mark {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            flex: 0 0 36px;
+            border-radius: 11px;
+            color: white;
+            background: linear-gradient(135deg, var(--accent-color), #2563eb);
+            box-shadow: 0 8px 18px rgba(52, 152, 219, 0.25);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-height: 44px;
+            padding: 0 13px;
+            border-radius: 11px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 650;
+            transition: color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+        }
+
+        .sidebar-nav a i {
+            width: 20px;
+            text-align: center;
+            color: #64748b;
+            transition: color 0.18s ease;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--primary-color);
+            background: #eef6ff;
+            transform: translateX(3px);
+        }
+
+        .sidebar-nav a.active {
+            color: #1d4ed8;
+            background: #e8f2ff;
+        }
+
+        .sidebar-nav a.active i {
+            color: #2563eb;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 22px;
+            left: 264px;
+            z-index: 1100;
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #dbe4ee;
+            border-radius: 12px;
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+            cursor: pointer;
+            transition: left 0.28s ease, transform 0.18s ease, background-color 0.18s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background: #f8fbff;
+            transform: translateY(-1px);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 900;
+            background: rgba(15, 23, 42, 0.28);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .main-content {
+            min-width: 0;
+            margin-left: 250px;
+            transition: margin-left 0.28s ease;
+        }
+
+        body.sidebar-hidden .sidebar {
+            transform: translateX(-100%);
+        }
+
+        body.sidebar-hidden .sidebar-toggle {
+            left: 18px;
+        }
+
+        body.sidebar-hidden .main-content {
+            margin-left: 0;
+        }
+
+        @media (max-width: 980px) {
+            .container {
+                width: min(100% - 36px, 900px);
+                padding: 76px 0 36px;
+            }
+
+            .sidebar {
+                width: 250px;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            body:not(.sidebar-hidden) .sidebar-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 28px, 900px);
+            }
+
+            .profile-info {
+                gap: 18px;
+            }
+
+            .contact-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 14px;
+            }
+
+            .contact-links a {
+                margin-right: 0;
+            }
+
+            .date {
+                float: none;
+                display: block;
+                margin-bottom: 4px;
+            }
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -220,8 +422,38 @@
 </head>
 <body>
 
+<aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
+    <div class="sidebar-brand">
+        <span class="sidebar-brand-mark"><i class="fas fa-layer-group"></i></span>
+        <span>Ishou Portfolio</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#profile" class="active"><i class="fas fa-user"></i><span>Profile</span></a>
+        <a href="#publications"><i class="fas fa-book-open"></i><span>Publications</span></a>
+        <a href="#patents"><i class="fas fa-lightbulb"></i><span>Patents</span></a>
+        <a href="#experience"><i class="fas fa-briefcase"></i><span>Internships</span></a>
+        <a href="#awards"><i class="fas fa-award"></i><span>Awards</span></a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+        <a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a>
+        <a href="#projects"><i class="fas fa-diagram-project"></i><span>Personal Projects</span></a>
+        <a href="#articles"><i class="fas fa-newspaper"></i><span>Articles</span></a>
+    </nav>
+</aside>
+
+<button class="sidebar-toggle" id="sidebarToggle"
+        type="button"
+        aria-label="Hide navigation"
+        aria-controls="sidebar"
+        aria-expanded="true">
+    <i class="fas fa-chevron-left"></i>
+</button>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<main class="main-content">
 <div class="container">
-    <header>
+    <header id="profile">
         <img src="profile.jpg" class="profile-img">
         <h1>[Profile]</h1>
         <p>Ishou Ko | Keio University Aoki Lab M1 | AI・CV Researcher / AI Engineer</p>
@@ -482,6 +714,84 @@
         <p>&copy; 2026 IshouKo. All Rights Reserved.</p>
     </footer>
 </div>
+</main>
+
+<script>
+    (() => {
+        const body = document.body;
+        const toggle = document.getElementById('sidebarToggle');
+        const overlay = document.getElementById('sidebarOverlay');
+        const navLinks = [...document.querySelectorAll('.sidebar-nav a')];
+        const desktopBreakpoint = 980;
+
+        const syncToggle = () => {
+            const hidden = body.classList.contains('sidebar-hidden');
+            toggle.setAttribute('aria-expanded', String(!hidden));
+            toggle.setAttribute('aria-label', hidden ? 'Show navigation' : 'Hide navigation');
+            toggle.innerHTML = hidden
+                ? '<i class="fas fa-bars"></i>'
+                : '<i class="fas fa-chevron-left"></i>';
+        };
+
+        const setSidebarHidden = (hidden) => {
+            body.classList.toggle('sidebar-hidden', hidden);
+            syncToggle();
+        };
+
+        if (window.innerWidth <= desktopBreakpoint) {
+            setSidebarHidden(true);
+        } else {
+            syncToggle();
+        }
+
+        toggle.addEventListener('click', () => {
+            setSidebarHidden(!body.classList.contains('sidebar-hidden'));
+        });
+
+        overlay.addEventListener('click', () => setSidebarHidden(true));
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= desktopBreakpoint) {
+                    setSidebarHidden(true);
+                }
+            });
+        });
+
+        const sections = navLinks
+            .map((link) => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (!visible) return;
+
+            navLinks.forEach((link) => {
+                link.classList.toggle(
+                    'active',
+                    link.getAttribute('href') === '#' + visible.target.id
+                );
+            });
+        }, {
+            rootMargin: '-20% 0px -65% 0px',
+            threshold: [0.01, 0.2, 0.5]
+        });
+
+        sections.forEach((section) => observer.observe(section));
+
+        let previousDesktopState = window.innerWidth > desktopBreakpoint;
+        window.addEventListener('resize', () => {
+            const isDesktop = window.innerWidth > desktopBreakpoint;
+            if (isDesktop !== previousDesktopState) {
+                setSidebarHidden(!isDesktop);
+                previousDesktopState = isDesktop;
+            }
+        });
+    })();
+</script>
 
 </body>
 </html>
