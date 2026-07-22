@@ -440,7 +440,7 @@
             /*
              * The date span appears before the title in the HTML.
              * On mobile, reorder each record as:
-             * title -> date -> description.
+             * title -> description -> date.
              */
             #publications .item,
             #experience .item,
@@ -456,23 +456,23 @@
                 order: 1;
             }
 
-            #publications .date,
-            #experience .date,
-            #education .date {
-                order: 2;
-                float: none;
-                display: block;
-                align-self: flex-start;
-                margin: 4px 0 3px;
-                color: #666 !important;
-                text-decoration: none !important;
-                white-space: nowrap;
-            }
-
             #publications .description,
             #experience .description,
             #education .description {
+                order: 2;
+            }
+
+            #publications .date,
+            #experience .date,
+            #education .date {
                 order: 3;
+                float: none;
+                display: block;
+                align-self: flex-start;
+                margin: 6px 0 0;
+                color: #666 !important;
+                text-decoration: none !important;
+                white-space: nowrap;
             }
 
             /* Awards contain plain text beside the date, so retain their compact layout. */
