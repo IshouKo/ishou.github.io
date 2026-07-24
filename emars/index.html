@@ -88,6 +88,15 @@
             font-size: 0.96rem;
         }
 
+        .contact-line {
+            margin: 10px auto 0;
+            max-width: 980px;
+            color: var(--muted);
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
         .resource-links {
             display: flex;
             justify-content: center;
@@ -186,8 +195,9 @@
             <a class="back-link" href="../">Back to portfolio</a>
             <h1>EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images</h1>
             <p class="venue">IEEE ICIP 2026</p>
-            <p class="authors"><strong>Weixiang Hu</strong>, Bohan Huang, Shigeaki Namiki, Yuka Ogino, Takahiro Toizumi, Atsushi Ito, Yoshimitsu Aoki</p>
-            <p class="affiliations">Keio University</p>
+            <p class="authors"><strong>Weixiang Hu</strong><sup>&dagger;</sup>, Bohan Huang<sup>&dagger;</sup>, Shigeaki Namiki<sup>&dagger;&dagger;</sup>, Yuka Ogino<sup>&dagger;&dagger;</sup>, Takahiro Toizumi<sup>&dagger;&dagger;</sup>, Atsushi Ito<sup>&dagger;&dagger;</sup>, Yoshimitsu Aoki<sup>&dagger;</sup></p>
+            <p class="affiliations"><sup>&dagger;</sup>Keio University &nbsp;&nbsp; <sup>&dagger;&dagger;</sup>NEC</p>
+            <p class="contact-line">{hwx2955, bohanhuang07}@keio.jp, {s-namiki, yogino, t-toizumi-ct, ito-atsushi}@nec.com, aoki@elec.keio.ac.jp</p>
             <nav class="resource-links" aria-label="Project resources">
                 <a class="resource-button" href="https://2026.ieeeicip.org/list-of-accepted-regular-and-special-session-papers/" target="_blank" rel="noopener">PDF</a>
             </nav>
@@ -204,7 +214,7 @@
         </section>
 
         <section>
-            <h2>Video</h2>
+            <h2>Visualization</h2>
             <div class="video-wrap">
                 <video src="../visualization.mp4" controls playsinline preload="metadata"></video>
             </div>
