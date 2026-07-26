@@ -325,20 +325,22 @@
             z-index: 1300;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            min-height: 40px;
-            padding: 0 14px;
+            gap: 10px;
+            min-height: 48px;
+            padding: 0 20px;
             border: 1px solid #dbe4ee;
             border-radius: 999px;
             color: var(--primary-color);
             background: rgba(255, 255, 255, 0.96);
             box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
         }
 
         .language-toggle i {
             color: var(--accent-color);
+            font-size: 1.12rem;
         }
 
         /* Hidden on desktop; shown only on mobile. */
@@ -409,9 +411,9 @@
             .language-toggle {
                 top: 16px;
                 right: 14px;
-                min-height: 38px;
-                padding: 0 12px;
-                font-size: 0.88rem;
+                min-height: 44px;
+                padding: 0 16px;
+                font-size: 0.94rem;
             }
 
             body.mobile-menu-open .mobile-menu-button {
@@ -686,7 +688,7 @@
         <div class="item">
             <span class="date">2026</span>
             <div class="institution">CVPR 2026</div>
-            <div class="description">Submitted</div>
+            <div class="description" data-i18n="publications.submitted">投稿・査読経験</div>
         </div>
     
         </div>
@@ -709,21 +711,21 @@
         <div class="item">
             <span class="date">2026/09 - 2026/11</span>
             <div class="institution">
-            Biometrics Research Laboratory, NEC Corp.
+            <span data-i18n="experience.nec.name">株式会社NEC　バイオメトリクス研究所</span>
             </div>
             <div class="description" data-i18n="experience.nec">R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発</div>
         </div>
         <div class="item">
             <span class="date" data-i18n="dates.202607now">2026/07 - 現在</span>
             <div class="institution">
-            Group DX Section, Department of Information Systems, Core Consulting Group Inc.
+            <span data-i18n="experience.core.name">株式会社光通信/コア・コンサルティング・グループ　情報システム部グループDX課</span>
             </div>
             <div class="description" data-i18n="experience.core">AIインターン：LLMを用いた企業業務自動化AI Agentの開発</div>
         </div>
         <div class="item">
             <span class="date">2026/01 - 2026/07</span>
             <div class="institution">
-                    Crystal-Method Co.,Ltd.
+                    <span data-i18n="experience.crystal.name">株式会社Crystal-Method</span>
             </div>
             <div class="description" data-i18n="experience.crystal">AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築</div>
         </div>
@@ -835,7 +837,7 @@
             <ul>
                 <li data-i18n="skills.cert.image"><strong>画像処理エンジニア検定 エキスパート, CG-ARTS</strong></li>
                 <li><strong>TOEFL iBT:</strong> 108/120 (Reading 30, Listening 27, Speaking 24, Writing 27)</li>
-                <li><strong>JLPT:</strong> N1</li>
+                <li data-i18n="skills.cert.jlpt"><strong>日本語能力試験:</strong> N1</li>
                 <li data-i18n="skills.cert.license"><strong>普通自動車第一種運転免許</strong></li>
             </ul>
         </div>
@@ -867,9 +869,9 @@
                 <img src="ai_system.png">
             </div>
             <div class="project-content">
-                <div class="project-title">AI System Web Application</div>
+                <div class="project-title" data-i18n="works.aiSystem.title">AIシステムウェブアプリ</div>
                 <div class="project-text">
-                    <span data-i18n="works.aiSystem">ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ。</span>
+                    <span data-i18n="works.aiSystem">ブレとRS歪みを含むローリングシャッター画像と対応するイベントデータから、歪み・ブレのない高フレームレートグローバルシャッター画像を推論し、画像（+任意で動画）として出力するAIウェブアプリ（EMARSの）。</span>
                 </div>
                 <a href="https://github.com/IshouKo/AI_web_app" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
@@ -880,9 +882,9 @@
                 <img src="ai_expense.png">
             </div>
             <div class="project-content">
-                <div class="project-title">AI Expense Agent</div>
+                <div class="project-title" data-i18n="works.expense.title">AI家計管理Agent</div>
                 <div class="project-text">
-                    <span data-i18n="works.expense">自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。</span>
+                    <span data-i18n="works.expense">自然言語メッセージから支出・収入やユーザーの意図を解析し、家計記録、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。</span>
                 </div>
                 <a href="https://github.com/IshouKo/AI_expense_agent" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
@@ -893,7 +895,7 @@
                 <img src="sns_project.png">
             </div>
             <div class="project-content">
-                <div class="project-title">Era SNS Web Application</div>
+                <div class="project-title" data-i18n="works.sns.title">Era SNS ウェブアプル</div>
                 <div class="project-text">
                     <span data-i18n="works.sns">ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ。</span>
                      
@@ -956,8 +958,12 @@
                 'sections.skills': 'スキル・資格',
                 'sections.works': 'プロジェクト',
                 'sections.articles': '記事',
+                'publications.submitted': '投稿・査読経験',
                 'patents.title': '画像処理装置、画像処理方法、およびプログラム',
                 'patents.description': 'PCT国際出願',
+                'experience.nec.name': '株式会社NEC　バイオメトリクス研究所',
+                'experience.core.name': '株式会社光通信/コア・コンサルティング・グループ　情報システム部グループDX課',
+                'experience.crystal.name': '株式会社Crystal-Method',
                 'experience.nec': 'R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発',
                 'experience.core': 'AIインターン：LLMを用いた企業業務自動化AI Agentの開発',
                 'experience.crystal': 'AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築',
@@ -977,10 +983,14 @@
                 'skills.others': 'その他',
                 'skills.certifications': '資格',
                 'skills.cert.image': '<strong>画像処理エンジニア検定 エキスパート, CG-ARTS</strong>',
+                'skills.cert.jlpt': '<strong>日本語能力試験:</strong> N1',
                 'skills.cert.license': '<strong>普通自動車第一種運転免許</strong>',
                 'links.readMore': '詳細を見る',
-                'works.aiSystem': 'ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ。',
-                'works.expense': '自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。',
+                'works.aiSystem.title': 'AIシステムウェブアプリ',
+                'works.aiSystem': 'ブレとRS歪みを含むローリングシャッター画像と対応するイベントデータから、歪み・ブレのない高フレームレートグローバルシャッター画像を推論し、画像（+任意で動画）として出力するAIウェブアプリ（EMARSの）。',
+                'works.expense.title': 'AI家計管理Agent',
+                'works.expense': '自然言語メッセージから支出・収入やユーザーの意図を解析し、家計記録、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。',
+                'works.sns.title': 'Era SNS ウェブアプル',
                 'works.sns': 'ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ。',
                 'articles.label': '語学学習',
                 'articles.title': 'TOEFL108点・N1を取った僕の外国語勉強法',
@@ -1008,8 +1018,12 @@
                 'sections.skills': 'Skills / Certifications',
                 'sections.works': 'Works',
                 'sections.articles': 'Articles',
+                'publications.submitted': 'Submission and review experience',
                 'patents.title': 'Image Processing Apparatus, Image Processing Method, and Program',
                 'patents.description': 'PCT International Application',
+                'experience.nec.name': 'Biometrics Research Laboratory, NEC Corp.',
+                'experience.core.name': 'Group DX Section, Department of Information Systems, Core Consulting Group Inc.',
+                'experience.crystal.name': 'Crystal-Method Co., Ltd.',
                 'experience.nec': 'R&D Intern: Research on AI-friendly image sensing and enhancement',
                 'experience.core': 'AI Intern: Development of an LLM-powered AI agent for enterprise workflow automation',
                 'experience.crystal': 'AI Systems Development Intern: Development and maintenance of an AI avatar chat web service, conversion of the web service into a mobile application, and training/environment setup for a Japanese text-to-speech model',
@@ -1029,10 +1043,14 @@
                 'skills.others': 'Others',
                 'skills.certifications': 'Certifications',
                 'skills.cert.image': '<strong>Image Processing Engineer Certification Test (Expert level), CG-ARTS</strong>',
+                'skills.cert.jlpt': '<strong>JLPT:</strong> N1',
                 'skills.cert.license': '<strong>Class 1 Ordinary Motor Vehicle Driver License</strong>',
                 'links.readMore': 'Read More',
-                'works.aiSystem': 'An AI-powered web application that generates distortion-free, high-frame-rate images by fusing rolling shutter images with event-based data.',
-                'works.expense': 'An AI-powered personal finance management agent that records income and expenses through natural language, categorizes transactions, generates monthly statistics, manages budgets, forecasts end-of-month spending, analyzes the causes of increased spending, and provides money-saving recommendations.',
+                'works.aiSystem.title': 'AI System Web Application',
+                'works.aiSystem': 'An AI web application for EMARS that infers distortion-free, blur-free, high-frame-rate global shutter images from rolling shutter images containing blur and RS distortion together with the corresponding event data, then outputs them as images and optionally as videos.',
+                'works.expense.title': 'AI Expense Agent',
+                'works.expense': 'An AI-powered personal finance management agent that analyzes expenses, income, and user intent from natural language messages, then handles household finance records, category classification, monthly statistics, budget management, end-of-month spending forecasts, spending increase analysis, and money-saving recommendations.',
+                'works.sns.title': 'Era SNS Web Application',
                 'works.sns': 'A next-generation SNS that automatically categorizes users into optimized Safe Zones based on their age demographics, fostering deeper connections through shared cultural contexts and generation-specific languages.',
                 'articles.label': 'Language Learning',
                 'articles.title': 'How I Studied Foreign Languages to Achieve TOEFL 108 and JLPT N1',
