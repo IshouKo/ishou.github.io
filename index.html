@@ -318,6 +318,29 @@
             margin-left: 250px;
         }
 
+        .language-toggle {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 1300;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 40px;
+            padding: 0 14px;
+            border: 1px solid #dbe4ee;
+            border-radius: 999px;
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .language-toggle i {
+            color: var(--accent-color);
+        }
+
         /* Hidden on desktop; shown only on mobile. */
         .mobile-menu-button,
         .sidebar-overlay {
@@ -381,6 +404,14 @@
                 background: rgba(255, 255, 255, 0.96);
                 box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
                 cursor: pointer;
+            }
+
+            .language-toggle {
+                top: 16px;
+                right: 14px;
+                min-height: 38px;
+                padding: 0 12px;
+                font-size: 0.88rem;
             }
 
             body.mobile-menu-open .mobile-menu-button {
@@ -580,6 +611,11 @@
 </head>
 <body>
 
+<button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English">
+    <i class="fas fa-language"></i>
+    <span id="languageToggleText">English</span>
+</button>
+
 <button
     class="mobile-menu-button"
     id="mobileMenuButton"
@@ -599,15 +635,15 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a href="#profile" class="active"><i class="fas fa-user"></i><span>Profile</span></a>
-        <a href="#publications"><i class="fas fa-book-open"></i><span>Publications</span></a>
-        <a href="#patents"><i class="fas fa-lightbulb"></i><span>Patents</span></a>
-        <a href="#experience"><i class="fas fa-briefcase"></i><span>Internships</span></a>
-        <a href="#awards"><i class="fas fa-award"></i><span>Awards</span></a>
-        <a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
-        <a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a>
-        <a href="#works"><i class="fas fa-diagram-project"></i><span>Works</span></a>
-        <a href="#articles"><i class="fas fa-newspaper"></i><span>Articles</span></a>
+        <a href="#profile" class="active"><i class="fas fa-user"></i><span data-i18n="nav.profile">プロフィール</span></a>
+        <a href="#publications"><i class="fas fa-book-open"></i><span data-i18n="nav.publications">学会発表</span></a>
+        <a href="#patents"><i class="fas fa-lightbulb"></i><span data-i18n="nav.patents">特許</span></a>
+        <a href="#experience"><i class="fas fa-briefcase"></i><span data-i18n="nav.experience">インターンシップ</span></a>
+        <a href="#awards"><i class="fas fa-award"></i><span data-i18n="nav.awards">受賞歴</span></a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i><span data-i18n="nav.education">学歴</span></a>
+        <a href="#skills"><i class="fas fa-code"></i><span data-i18n="nav.skills">スキル</span></a>
+        <a href="#works"><i class="fas fa-diagram-project"></i><span data-i18n="nav.works">プロジェクト</span></a>
+        <a href="#articles"><i class="fas fa-newspaper"></i><span data-i18n="nav.articles">記事</span></a>
     </nav>
 </aside>
 
@@ -615,8 +651,8 @@
 <div class="container">
     <header id="profile">
         <img src="profile.jpg" class="profile-img">
-        <h1>[Profile]</h1>
-        <p>Weixiang Hu | Keio University Aoki Lab M1 | AI・CV Researcher / AI Engineer</p>
+        <h1 data-i18n="profile.heading">[プロフィール]</h1>
+        <p data-i18n="profile.subtitle">胡 煒翔 | 慶應義塾大学 青木研究室 M1 | AI・CV 研究者 / AIエンジニア</p>
         <div class="contact-links">
             <a href="https://aoki-medialab.jp"><i class="fab fa-research"></i> Aoki Lab</a>
             <a href="https://github.com/IshouKo"><i class="fab fa-github"></i> GitHub</a>
@@ -629,13 +665,13 @@
     <section id="about">
         <div class="profile-info">
             <div class="bio">
-                <p>I am a graduate student at the Aoki Media Sensing Laboratory within the Graduate School of Science and Technology at Keio University. My research expertise lies in deep learning-based computer vision, specifically focusing on image restoration, video generation, 3D reconstruction and event camera. In addition to my academic research, I am actively engaged in AI application development.　<br>　慶應義塾大学大学院 理工学研究科 総合デザイン工学専攻 電気情報工学 青木研究室に所属。深層学習ベースのコンピュータビジョンを専門とし、特に画像復元、動画生成、3D再構成、イベントカメラの研究とAI開発に従事しています。</p>
+                <p data-i18n="about.body">慶應義塾大学大学院 理工学研究科 総合デザイン工学専攻 電気情報工学 青木研究室に所属しています。深層学習ベースのコンピュータビジョンを専門とし、特に画像復元、動画生成、3D再構成、イベントカメラの研究とAI開発に従事しています。</p>
             </div>
         </div>
     </section>
 
     <section id="publications" class="timeline-section">
-        <h2> Publications / 学会発表</h2>
+        <h2 data-i18n="sections.publications">学会発表</h2>
         <div class="section-timeline">
         <div class="item">
             <span class="date">2026/09</span>
@@ -657,77 +693,77 @@
     </section>
 
     <section id="patents" class="timeline-section">
-        <h2> Patents / 特許</h2>
+        <h2 data-i18n="sections.patents">特許</h2>
         <div class="section-timeline">
         <div class="item">
-            <div class="institution">Image Processing Apparatus, Image Processing Method, and Program</div>
-            <div class="description">PCT International Application</div>
+            <div class="institution" data-i18n="patents.title">画像処理装置、画像処理方法、およびプログラム</div>
+            <div class="description" data-i18n="patents.description">PCT国際出願</div>
         </div>
     
         </div>
     </section>
 
     <section id="experience" class="timeline-section">
-        <h2> Internships / インターンシップ</h2>
+        <h2 data-i18n="sections.experience">インターンシップ</h2>
         <div class="section-timeline">
         <div class="item">
             <span class="date">2026/09 - 2026/11</span>
             <div class="institution">
             Biometrics Research Laboratory, NEC Corp.
             </div>
-            <div class="description">R&D Intern: Research on AI friendly image sensing and enhancement<br>R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発</div>
+            <div class="description" data-i18n="experience.nec">R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発</div>
         </div>
         <div class="item">
-            <span class="date">2026/07 - Now</span>
+            <span class="date" data-i18n="dates.202607now">2026/07 - 現在</span>
             <div class="institution">
             Group DX Section, Department of Information Systems, Core Consulting Group Inc.
             </div>
-            <div class="description">AI Intern: Development of an LLM-powered AI agent for enterprise workflow automation<br>AIインターン：LLMを用いた企業業務自動化AI Agentの開発</div>
+            <div class="description" data-i18n="experience.core">AIインターン：LLMを用いた企業業務自動化AI Agentの開発</div>
         </div>
         <div class="item">
             <span class="date">2026/01 - 2026/07</span>
             <div class="institution">
                     Crystal-Method Co.,Ltd.
             </div>
-            <div class="description">AI Systems Development Intern: Development and maintenance of an AI avatar chat web service・Conversion of the web service into a mobile application・Training and environment setup for a Japanese text-to-speech model<br>AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築</div>
+            <div class="description" data-i18n="experience.crystal">AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築</div>
         </div>
     
         </div>
     </section>
 
     <section id="awards" class="timeline-section">
-        <h2> Awards / 受賞歴・奨学金</h2>
+        <h2 data-i18n="sections.awards">受賞歴・奨学金</h2>
         <div class="section-timeline">
-        <div class="item"><span class="date">2024/04 - 2026/03</span>AEON Scholarship</div>
-        <div class="item"><span class="date">2023/10 - 2024/03</span>慶應義塾大学給費奨学金</div>
-        <div class="item"><span class="date">2023/04 - 2023/09</span>山岡憲一記念基金奨学金</div>
+        <div class="item"><span class="date">2024/04 - 2026/03</span><span data-i18n="awards.aeon">イオンスカラシップ</span></div>
+        <div class="item"><span class="date">2023/10 - 2024/03</span><span data-i18n="awards.keio">慶應義塾大学給費奨学金</span></div>
+        <div class="item"><span class="date">2023/04 - 2023/09</span><span data-i18n="awards.yamaoka">山岡憲一記念基金奨学金</span></div>
     
         </div>
     </section>
 
     <section id="education" class="timeline-section">
-        <h2> Education / 学歴</h2>
+        <h2 data-i18n="sections.education">学歴</h2>
         <div class="section-timeline">
         <div class="item">
-            <span class="date">2026/04 - Now</span>
-            <div class="institution">Graduate School of Science and Technology, Keio University</div>
-            <div class="description">Aoki Laboratory, Electrical Engineering and Computer Science Curriculum, School of Integrated Design Engineering</div>
+            <span class="date" data-i18n="dates.202604now">2026/04 - 現在</span>
+            <div class="institution" data-i18n="education.grad">慶應義塾大学大学院 理工学研究科</div>
+            <div class="description" data-i18n="education.grad.desc">総合デザイン工学専攻 電気情報工学 青木研究室</div>
         </div>
         <div class="item">
             <span class="date">2022/04 - 2026/03</span>
-            <div class="institution">Faculty of Science and Technology, Keio University</div>
-            <div class="description">Aoki Laboratory, Department of Electrical Engineering and Computer Science</div>
+            <div class="institution" data-i18n="education.undergrad">慶應義塾大学 理工学部</div>
+            <div class="description" data-i18n="education.undergrad.desc">電気情報工学科 青木研究室</div>
         </div>
     
         </div>
     </section>
 
     <section id="skills" class="timeline-section">
-        <h2> Skills / スキル・資格</h2>
+        <h2 data-i18n="sections.skills">スキル・資格</h2>
         <div class="section-timeline">
     
         <div class="item">
-            <h3>Programming Languages</h3>
+            <h3 data-i18n="skills.programming">プログラミング言語</h3>
             <div>
                 <span class="tag">Python</span>
                 <span class="tag">C</span>
@@ -741,7 +777,7 @@
         </div>
     
         <div class="item">
-            <h3>Frameworks・Libraries</h3>
+            <h3 data-i18n="skills.frameworks">フレームワーク・ライブラリ</h3>
             <div>
                 <span class="tag">PyTorch</span>
                 <span class="tag">TensorFlow</span>
@@ -757,7 +793,7 @@
         </div>
     
         <div class="item">
-            <h3>Tools・Development Environments</h3>
+            <h3 data-i18n="skills.tools">ツール・開発環境</h3>
             <div>
                 <span class="tag">Git</span>
                 <span class="tag">GitHub</span>
@@ -771,7 +807,7 @@
         </div>
     
         <div class="item">
-            <h3>AI Research and Development Areas</h3>
+            <h3 data-i18n="skills.areas">AI研究・開発領域</h3>
             <div>
                 <span class="tag">Deep Learning</span>
                 <span class="tag">Machine Learning</span>
@@ -784,7 +820,7 @@
         </div>
     
         <div class="item">
-            <h3>Others</h3>
+            <h3 data-i18n="skills.others">その他</h3>
             <div>
                 <span class="tag">English Paper Reading & Writing</span>
                 <span class="tag">Semiconductor</span>
@@ -795,12 +831,12 @@
         </div>
     
         <div style="margin-top:20px;">
-            <h3>Certifications</h3>
+            <h3 data-i18n="skills.certifications">資格</h3>
             <ul>
-                <li><strong>Image Processing Engineer Certification Test (Expert level), CG-ARTS</li>
+                <li data-i18n="skills.cert.image"><strong>画像処理エンジニア検定 エキスパート, CG-ARTS</strong></li>
                 <li><strong>TOEFL iBT:</strong> 108/120 (Reading 30, Listening 27, Speaking 24, Writing 27)</li>
                 <li><strong>JLPT:</strong> N1</li>
-                <li><strong>普通自動車第一種運転免許</strong></li>
+                <li data-i18n="skills.cert.license"><strong>普通自動車第一種運転免許</strong></li>
             </ul>
         </div>
     
@@ -808,7 +844,7 @@
     </section>
 
     <section id="works">
-        <h2> Works / プロジェクト</h2>
+        <h2 data-i18n="sections.works">プロジェクト</h2>
 
         <div class="year-header">2026</div>
         <div class="project-card">
@@ -818,10 +854,10 @@
             <div class="project-content">
                 <div class="project-title">EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images</div>
                 <div class="project-text">
-                    RS-CMOS sensors suffer from distortions and blur, which event-based Implicit Neural Representations (INR) often fail to resolve due to motion information loss. We propose a flow-centric unified framework that explicitly utilizes time-conditional optical flow as the primary kinematic constraint. By integrating a Flow-Constrained INR, our model ensures physically consistent motion trajectories for simultaneous RS correction, deblurring, and arbitrary-rate interpolation. Experiments demonstrate that our method achieves state-of-the-art performance across all benchmarks. <br>　Scheduled to present at IEEE ICIP 2026.
+                    RS-CMOS sensors suffer from distortions and blur, which event-based Implicit Neural Representations (INR) often fail to resolve due to motion information loss. We propose a flow-centric unified framework that explicitly utilizes time-conditional optical flow as the primary kinematic constraint. By integrating a Flow-Constrained INR, our model ensures physically consistent motion trajectories for simultaneous RS correction, deblurring, and arbitrary-rate interpolation. Experiments demonstrate that our method achieves state-of-the-art performance across all benchmarks.<br>　Scheduled to present at IEEE ICIP 2026.
         
                 </div>
-                <a href="emars/" class="read-more">Read More</a>
+                <a href="emars/" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
         </div>
         
@@ -833,9 +869,9 @@
             <div class="project-content">
                 <div class="project-title">AI System Web Application</div>
                 <div class="project-text">
-                    AI-powered web application that generates distortion-free, high-frame-rate images by fusing Rolling Shutter (RS) images with event-based data. <br>　ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ。　　
+                    <span data-i18n="works.aiSystem">ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ。</span>
                 </div>
-                <a href="https://github.com/IshouKo/AI_web_app" class="read-more">Read More</a>
+                <a href="https://github.com/IshouKo/AI_web_app" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
         </div>
 
@@ -846,9 +882,9 @@
             <div class="project-content">
                 <div class="project-title">AI Expense Agent</div>
                 <div class="project-text">
-                    An AI-powered personal finance management agent that records income and expenses through natural language, categorizes transactions, generates monthly statistics, manages budgets, forecasts end-of-month spending, analyzes the causes of increased spending, and provides money-saving recommendations. <br>　自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。　　
+                    <span data-i18n="works.expense">自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。</span>
                 </div>
-                <a href="https://github.com/IshouKo/AI_expense_agent" class="read-more">Read More</a>
+                <a href="https://github.com/IshouKo/AI_expense_agent" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
         </div>
 
@@ -859,23 +895,23 @@
             <div class="project-content">
                 <div class="project-title">Era SNS Web Application</div>
                 <div class="project-text">
-                    A next-generation SNS that automatically categorizes users into optimized "Safe Zones" based on their age demographics (Gen Z, Millennials, Seniors, etc.), fostering deeper connections through shared cultural contexts and generation-specific languages. <br>　ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ。
+                    <span data-i18n="works.sns">ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ。</span>
                      
                 </div>
-                <a href="https://github.com/IshouKo/era_SNS_web_app" class="read-more">Read More</a>
+                <a href="https://github.com/IshouKo/era_SNS_web_app" class="read-more" data-i18n="links.readMore">詳細を見る</a>
             </div>
         </div>
 
     </section>
 
         <section id="articles">
-        <h2> Articles / 記事</h2>
+        <h2 data-i18n="sections.articles">記事</h2>
 
         <div class="article-grid">
             <article class="article-card">
-                <span class="article-label">Language Learning</span>
-                <h3 class="article-title">TOEFL108点・N1を取った僕の外国語勉強法</h3>
-                <p class="article-description">
+                <span class="article-label" data-i18n="articles.label">語学学習</span>
+                <h3 class="article-title" data-i18n="articles.title">TOEFL108点・N1を取った僕の外国語勉強法</h3>
+                <p class="article-description" data-i18n="articles.description">
                     AI・コンピュータビジョン研究者の立場から、AI時代に外国語を学ぶ意味と、
                     単語・Reading・Listening・Speaking・Writingの勉強法を紹介します。
                 </p>
@@ -883,7 +919,7 @@
                    class="article-link"
                    target="_blank"
                    rel="noopener noreferrer">
-                    noteで読む <i class="fas fa-arrow-up-right-from-square"></i>
+                    <span data-i18n="articles.link">noteで読む</span> <i class="fas fa-arrow-up-right-from-square"></i>
                 </a>
             </article>
         </div>
@@ -898,11 +934,147 @@
 
 <script>
     (() => {
+        const translations = {
+            ja: {
+                'nav.profile': 'プロフィール',
+                'nav.publications': '学会発表',
+                'nav.patents': '特許',
+                'nav.experience': 'インターンシップ',
+                'nav.awards': '受賞歴',
+                'nav.education': '学歴',
+                'nav.skills': 'スキル',
+                'nav.works': 'プロジェクト',
+                'nav.articles': '記事',
+                'profile.heading': '[プロフィール]',
+                'profile.subtitle': '胡 煒翔 | 慶應義塾大学 青木研究室 M1 | AI・CV 研究者 / AIエンジニア',
+                'about.body': '慶應義塾大学大学院 理工学研究科 総合デザイン工学専攻 電気情報工学 青木研究室に所属しています。深層学習ベースのコンピュータビジョンを専門とし、特に画像復元、動画生成、3D再構成、イベントカメラの研究とAI開発に従事しています。',
+                'sections.publications': '学会発表',
+                'sections.patents': '特許',
+                'sections.experience': 'インターンシップ',
+                'sections.awards': '受賞歴・奨学金',
+                'sections.education': '学歴',
+                'sections.skills': 'スキル・資格',
+                'sections.works': 'プロジェクト',
+                'sections.articles': '記事',
+                'patents.title': '画像処理装置、画像処理方法、およびプログラム',
+                'patents.description': 'PCT国際出願',
+                'experience.nec': 'R&Dインターン：画像認識エンジン強化のためのセンシング最適化に関する研究開発',
+                'experience.core': 'AIインターン：LLMを用いた企業業務自動化AI Agentの開発',
+                'experience.crystal': 'AIシステム開発エンジニア：AIアバターチャットWebサービスの運用開発・Webサービスのスマホアプリ化・日本語音声合成の学習/環境構築',
+                'dates.202607now': '2026/07 - 現在',
+                'dates.202604now': '2026/04 - 現在',
+                'awards.aeon': 'イオンスカラシップ',
+                'awards.keio': '慶應義塾大学給費奨学金',
+                'awards.yamaoka': '山岡憲一記念基金奨学金',
+                'education.grad': '慶應義塾大学大学院 理工学研究科',
+                'education.grad.desc': '総合デザイン工学専攻 電気情報工学 青木研究室',
+                'education.undergrad': '慶應義塾大学 理工学部',
+                'education.undergrad.desc': '電気情報工学科 青木研究室',
+                'skills.programming': 'プログラミング言語',
+                'skills.frameworks': 'フレームワーク・ライブラリ',
+                'skills.tools': 'ツール・開発環境',
+                'skills.areas': 'AI研究・開発領域',
+                'skills.others': 'その他',
+                'skills.certifications': '資格',
+                'skills.cert.image': '<strong>画像処理エンジニア検定 エキスパート, CG-ARTS</strong>',
+                'skills.cert.license': '<strong>普通自動車第一種運転免許</strong>',
+                'links.readMore': '詳細を見る',
+                'works.aiSystem': 'ローリングシャッター画像とイベントデータから、歪みのない高フレームレート画像を生成するAIウェブアプリ。',
+                'works.expense': '自然言語で支出・収入を記録し、カテゴリ分類、月次統計、予算管理、月末支出予測、支出増加要因の分析、節約提案まで行うAI家計管理Agent。',
+                'works.sns': 'ユーザーを年齢層（Z世代、ミレニアル世代、シニア世代など）ごとに最適化された「セーフゾーン」に自動で振り分け、世代特有の文化や共通言語に基づいた深いコミュニケーションを促進するSNSウェブアプリ。',
+                'articles.label': '語学学習',
+                'articles.title': 'TOEFL108点・N1を取った僕の外国語勉強法',
+                'articles.description': 'AI・コンピュータビジョン研究者の立場から、AI時代に外国語を学ぶ意味と、単語・Reading・Listening・Speaking・Writingの勉強法を紹介します。',
+                'articles.link': 'noteで読む'
+            },
+            en: {
+                'nav.profile': 'Profile',
+                'nav.publications': 'Publications',
+                'nav.patents': 'Patents',
+                'nav.experience': 'Internships',
+                'nav.awards': 'Awards',
+                'nav.education': 'Education',
+                'nav.skills': 'Skills',
+                'nav.works': 'Works',
+                'nav.articles': 'Articles',
+                'profile.heading': '[Profile]',
+                'profile.subtitle': 'Weixiang Hu | Keio University Aoki Lab M1 | AI/CV Researcher / AI Engineer',
+                'about.body': 'I am a graduate student at the Aoki Media Sensing Laboratory within the Graduate School of Science and Technology at Keio University. My research expertise lies in deep learning-based computer vision, specifically focusing on image restoration, video generation, 3D reconstruction, and event cameras. In addition to my academic research, I am actively engaged in AI application development.',
+                'sections.publications': 'Publications',
+                'sections.patents': 'Patents',
+                'sections.experience': 'Internships',
+                'sections.awards': 'Awards / Scholarships',
+                'sections.education': 'Education',
+                'sections.skills': 'Skills / Certifications',
+                'sections.works': 'Works',
+                'sections.articles': 'Articles',
+                'patents.title': 'Image Processing Apparatus, Image Processing Method, and Program',
+                'patents.description': 'PCT International Application',
+                'experience.nec': 'R&D Intern: Research on AI-friendly image sensing and enhancement',
+                'experience.core': 'AI Intern: Development of an LLM-powered AI agent for enterprise workflow automation',
+                'experience.crystal': 'AI Systems Development Intern: Development and maintenance of an AI avatar chat web service, conversion of the web service into a mobile application, and training/environment setup for a Japanese text-to-speech model',
+                'dates.202607now': '2026/07 - Now',
+                'dates.202604now': '2026/04 - Now',
+                'awards.aeon': 'AEON Scholarship',
+                'awards.keio': 'Keio University Degree Completion Scholarship',
+                'awards.yamaoka': 'Kenichi Yamaoka Memorial Scholarship',
+                'education.grad': 'Graduate School of Science and Technology, Keio University',
+                'education.grad.desc': 'Aoki Laboratory, Electrical Engineering and Computer Science Curriculum, School of Integrated Design Engineering',
+                'education.undergrad': 'Faculty of Science and Technology, Keio University',
+                'education.undergrad.desc': 'Aoki Laboratory, Department of Electrical Engineering and Computer Science',
+                'skills.programming': 'Programming Languages',
+                'skills.frameworks': 'Frameworks / Libraries',
+                'skills.tools': 'Tools / Development Environments',
+                'skills.areas': 'AI Research and Development Areas',
+                'skills.others': 'Others',
+                'skills.certifications': 'Certifications',
+                'skills.cert.image': '<strong>Image Processing Engineer Certification Test (Expert level), CG-ARTS</strong>',
+                'skills.cert.license': '<strong>Class 1 Ordinary Motor Vehicle Driver License</strong>',
+                'links.readMore': 'Read More',
+                'works.aiSystem': 'An AI-powered web application that generates distortion-free, high-frame-rate images by fusing rolling shutter images with event-based data.',
+                'works.expense': 'An AI-powered personal finance management agent that records income and expenses through natural language, categorizes transactions, generates monthly statistics, manages budgets, forecasts end-of-month spending, analyzes the causes of increased spending, and provides money-saving recommendations.',
+                'works.sns': 'A next-generation SNS that automatically categorizes users into optimized Safe Zones based on their age demographics, fostering deeper connections through shared cultural contexts and generation-specific languages.',
+                'articles.label': 'Language Learning',
+                'articles.title': 'How I Studied Foreign Languages to Achieve TOEFL 108 and JLPT N1',
+                'articles.description': 'From the perspective of an AI and computer vision researcher, this article introduces why foreign language learning matters in the AI era and how I studied vocabulary, reading, listening, speaking, and writing.',
+                'articles.link': 'Read on note'
+            }
+        };
+
         const body = document.body;
+        const languageToggle = document.getElementById('languageToggle');
+        const languageToggleText = document.getElementById('languageToggleText');
         const menuButton = document.getElementById('mobileMenuButton');
         const overlay = document.getElementById('sidebarOverlay');
         const navLinks = [...document.querySelectorAll('.sidebar-nav a')];
         const mobileBreakpoint = 768;
+
+        const setLanguage = (language) => {
+            const dictionary = translations[language] || translations.ja;
+            document.documentElement.lang = language;
+
+            document.querySelectorAll('[data-i18n]').forEach((element) => {
+                const key = element.dataset.i18n;
+                if (dictionary[key]) {
+                    element.innerHTML = dictionary[key];
+                }
+            });
+
+            languageToggleText.textContent = language === 'ja' ? 'English' : '日本語';
+            languageToggle.setAttribute(
+                'aria-label',
+                language === 'ja' ? 'Switch to English' : '日本語に切り替える'
+            );
+            localStorage.setItem('portfolioLanguage', language);
+        };
+
+        const initialLanguage = localStorage.getItem('portfolioLanguage') || 'ja';
+        setLanguage(initialLanguage);
+
+        languageToggle.addEventListener('click', () => {
+            const nextLanguage = document.documentElement.lang === 'ja' ? 'en' : 'ja';
+            setLanguage(nextLanguage);
+        });
 
         const setMenuOpen = (open) => {
             body.classList.toggle('mobile-menu-open', open);
