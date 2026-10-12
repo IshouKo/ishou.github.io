@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robust 3D Gaussian Splatting under Adverse Weather and Low-Light Conditions</title>
+    <meta name="description" content="Project page for robust 3D Gaussian Splatting under adverse weather and low-light conditions.">
+    <style>
+        :root {
+            --ink: #172033;
+            --muted: #5f6f89;
+            --line: #dce4ef;
+            --paper: #ffffff;
+            --soft: #f6f8fb;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.62;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .page {
+            width: min(1040px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding: 58px 0 26px;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        h1 {
+            max-width: 980px;
+            margin: 0 auto 14px;
+            color: var(--ink);
+            font-size: clamp(2rem, 4.5vw, 3.35rem);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .venue {
+            margin: 0 0 22px;
+            color: var(--accent-dark);
+            font-size: 1.18rem;
+            font-weight: 700;
+        }
+
+        .authors {
+            margin: 0 auto 12px;
+            max-width: 900px;
+            color: #253149;
+            font-size: 1.04rem;
+        }
+
+        .affiliations {
+            margin: 0 auto;
+            max-width: 900px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .contact-line {
+            margin: 10px auto 0;
+            max-width: 980px;
+            color: var(--muted);
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .resource-links {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 36px;
+        }
+
+        .resource-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 24px rgba(23, 32, 51, 0.16);
+        }
+
+        .resource-button[aria-disabled="true"] {
+            cursor: default;
+        }
+
+        .figure {
+            margin: 0 auto;
+        }
+
+        .figure img,
+        .video-wrap video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: #000000;
+        }
+
+        section {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: var(--ink);
+            font-size: 1.7rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .abstract {
+            max-width: 900px;
+            margin: 0 auto;
+            color: #303b52;
+            font-size: 1.04rem;
+            text-align: justify;
+        }
+
+        .video-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .video-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .video-caption {
+            margin: 10px 0 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.94rem;
+        }
+
+        footer {
+            padding: 26px 0 42px;
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 28px, 1040px);
+            }
+
+            .hero {
+                padding-top: 34px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .authors,
+            .affiliations {
+                text-align: center;
+            }
+
+            .abstract {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <a class="back-link" href="../">Back to portfolio</a>
+            <h1>Robust 3D Gaussian Splatting under Adverse Weather and Low-Light Conditions</h1>
+            <p class="venue">CVPR 2027 &middot; Submitting</p>
+            <p class="authors"><strong>Weixiang Hu</strong><sup>&dagger;</sup>, Yuka Ogino<sup>&dagger;&dagger;</sup>, Takahiro Toizumi<sup>&dagger;&dagger;</sup>, Atsushi Ito<sup>&dagger;&dagger;</sup>, Yoshimitsu Aoki<sup>&dagger;</sup></p>
+            <p class="affiliations"><sup>&dagger;</sup>Keio University &nbsp;&nbsp; <sup>&dagger;&dagger;</sup>NEC</p>
+            <p class="contact-line">hwx2955@keio.jp, {yogino, t-toizumi-ct, ito-atsushi}@nec.com, aoki@elec.keio.ac.jp</p>
+            <nav class="resource-links" aria-label="Project resources">
+                <a class="resource-button" href="#" aria-disabled="true" onclick="return false;">Paper</a>
+            </nav>
+            <figure class="figure">
+                <img src="preview.gif" alt="Comparison of degraded inputs, NimbusGS output, and our clean reconstruction">
+            </figure>
+        </header>
+
+        <section>
+            <h2>Abstract</h2>
+            <p class="abstract">
+                Reconstructing 3D scenes from images captured under adverse conditions remains challenging when low illumination, continuous scattering media, and transient particles occur simultaneously. These degradations can be absorbed into Gaussian appearance and geometry, producing view-dependent color shifts and artifacts. We propose a unified physics-aware 3D Gaussian Splatting framework that decomposes illumination, continuous media, and dynamic particles. Renderer-aware multi-view Gaussian consensus corrects base colors using robust cross-view evidence, while physics-aware densification suppresses spurious Gaussian growth caused by weather particles and preserves structural detail in low-confidence regions. Experiments on synthetic and real-world scenes demonstrate robust, clean reconstruction across mixed low-light and adverse-weather conditions.
+            </p>
+        </section>
+
+        <section>
+            <h2>Visualization</h2>
+            <div class="video-grid">
+                <div class="video-wrap">
+                    <video src="comparison.mp4" poster="comparison-poster.jpg" controls playsinline preload="metadata"></video>
+                    <p class="video-caption">Reconstruction comparison under combined low-light, haze, rain, and snow degradation.</p>
+                </div>
+                <div class="video-wrap">
+                    <video src="decomposition.mp4" poster="decomposition-poster.jpg" controls playsinline preload="metadata"></video>
+                    <p class="video-caption">Clean reconstruction and the predicted illumination, transmission, and particle components.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Robust 3D Gaussian Splatting project page.
+    </footer>
+</body>
+</html>
