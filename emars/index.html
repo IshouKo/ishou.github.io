@@ -61,7 +61,7 @@
             max-width: 980px;
             margin: 0 auto 14px;
             color: var(--ink);
-            font-size: clamp(2rem, 4.5vw, 3.35rem);
+            font-size: 2.5rem;
             line-height: 1.08;
             font-weight: 800;
             letter-spacing: 0;
@@ -223,6 +223,16 @@
             font-size: 0.92rem;
         }
 
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3.25rem;
+            }
+
+            .title-line {
+                display: block;
+            }
+        }
+
         @media (max-width: 640px) {
             .page {
                 width: min(100% - 28px, 1040px);
@@ -255,7 +265,7 @@
     <main class="page">
         <header class="hero">
             <a class="back-link" href="../">Back to portfolio</a>
-            <h1>EMARS: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images</h1>
+            <h1><span class="title-line">EMARS: Event-based Motion-Aware</span> <span class="title-line">Correction, Deblurring and</span> <span class="title-line">Interpolation of Rolling Shutter Images</span></h1>
             <p class="venue">2026 IEEE International Conference on Image Processing (ICIP)</p>
             <p class="authors"><strong>Weixiang Hu</strong><sup>&dagger;</sup>, Bohan Huang<sup>&dagger;</sup>, Shigeaki Namiki<sup>&dagger;&dagger;</sup>, Yuka Ogino<sup>&dagger;&dagger;</sup>, Takahiro Toizumi<sup>&dagger;&dagger;</sup>, Atsushi Ito<sup>&dagger;&dagger;</sup>, Yoshimitsu Aoki<sup>&dagger;</sup></p>
             <p class="affiliations"><sup>&dagger;</sup>Keio University &nbsp;&nbsp; <sup>&dagger;&dagger;</sup>NEC</p>
@@ -289,8 +299,8 @@
                 <button id="copy-bibtex" class="copy-button" type="button" aria-label="Copy BibTeX citation" aria-live="polite">Copy</button>
             </div>
             <pre class="bibtex-code" tabindex="0" aria-label="BibTeX citation"><code id="bibtex-citation">@inproceedings{11630064,
-  title={{EMARS}: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images},
-  author={Hu, Weixiang and Huang, Bohan and Namiki, Shigeaki and Ogino, Yuka and Toizumi, Takahiro and Ito, Atsushi and Aoki, Yoshimitsu},
+  title={Emars: Event-Based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images},
+  author={Weixiang Hu and Bohan Huang and Shigeaki Namiki and Yuka Ogino and Takahiro Toizumi and Atsushi Ito and Yoshimitsu Aoki},
   booktitle={2026 IEEE International Conference on Image Processing (ICIP)},
   year={2026}
 }</code></pre>
