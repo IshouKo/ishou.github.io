@@ -163,6 +163,59 @@
             margin: 0 auto;
         }
 
+        .bibtex-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .bibtex-header h2 {
+            margin: 0;
+            text-align: left;
+        }
+
+        .copy-button {
+            min-width: 100px;
+            min-height: 44px;
+            padding: 10px 18px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #ffffff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background: var(--accent-dark);
+        }
+
+        .copy-button:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .bibtex-code {
+            max-width: 100%;
+            margin: 0;
+            padding: 24px;
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--soft);
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.94rem;
+            line-height: 1.65;
+            tab-size: 2;
+        }
+
+        .bibtex-code code {
+            font: inherit;
+        }
+
         footer {
             padding: 26px 0 42px;
             color: var(--muted);
@@ -229,9 +282,63 @@
                 <video src="../visualization.mp4" controls playsinline preload="metadata"></video>
             </div>
         </section>
+
+        <section aria-labelledby="bibtex-heading">
+            <div class="bibtex-header">
+                <h2 id="bibtex-heading">BibTeX</h2>
+                <button id="copy-bibtex" class="copy-button" type="button" aria-label="Copy BibTeX citation" aria-live="polite">Copy</button>
+            </div>
+            <pre class="bibtex-code" tabindex="0" aria-label="BibTeX citation"><code id="bibtex-citation">@inproceedings{hu2026emars,
+  title={{EMARS}: Event-based Motion-Aware Correction, Deblurring and Interpolation of Rolling Shutter Images},
+  author={Hu, Weixiang and Huang, Bohan and Namiki, Shigeaki and Ogino, Yuka and Toizumi, Takahiro and Ito, Atsushi and Aoki, Yoshimitsu},
+  booktitle={2026 IEEE International Conference on Image Processing (ICIP)},
+  year={2026},
+  pages={1--6},
+  doi={10.1109/ICIP61757.2026.11630064}
+}</code></pre>
+        </section>
     </main>
     <footer>
         EMARS project page.
     </footer>
+    <script>
+        (() => {
+            const button = document.getElementById('copy-bibtex');
+            const citation = document.getElementById('bibtex-citation');
+
+            const copySelection = () => {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(citation);
+                selection.removeAllRanges();
+                selection.addRange(range);
+                const copied = document.execCommand('copy');
+                if (copied) selection.removeAllRanges();
+                return copied;
+            };
+
+            button.addEventListener('click', async () => {
+                button.disabled = true;
+                let copied = false;
+                try {
+                    await navigator.clipboard.writeText(citation.textContent);
+                    copied = true;
+                } catch {
+                    try {
+                        copied = copySelection();
+                    } catch {
+                        copied = false;
+                    }
+                }
+                button.textContent = copied ? 'Copied!' : 'Copy failed';
+                button.setAttribute('aria-label', copied ? 'BibTeX citation copied' : 'Copy failed; select the citation to copy manually');
+                window.setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.setAttribute('aria-label', 'Copy BibTeX citation');
+                    button.disabled = false;
+                }, 2000);
+            });
+        })();
+    </script>
 </body>
 </html>
